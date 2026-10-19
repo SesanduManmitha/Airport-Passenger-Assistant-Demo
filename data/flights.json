@@ -1,0 +1,7 @@
+[
+  {"flight": "UL225", "airline": "SriLankan Airlines", "from": "Colombo (CMB)", "to": "Singapore (SIN)", "type": "departure", "scheduled": "2026-10-16T10:30", "status": "On Time", "gate": "B4", "checkin_counters": "12-18"},
+  {"flight": "UL503", "airline": "SriLankan Airlines", "from": "Colombo (CMB)", "to": "Dubai (DXB)", "type": "departure", "scheduled": "2026-10-16T13:45", "status": "Delayed", "gate": "A2", "checkin_counters": "20-26"},
+  {"flight": "UL308", "airline": "SriLankan Airlines", "from": "Chennai (MAA)", "to": "Colombo (CMB)", "type": "arrival", "scheduled": "2026-10-16T11:15", "status": "Landed", "gate": "Baggage belt 2", "checkin_counters": null},
+  {"flight": "EK651", "airline": "Emirates", "from": "Dubai (DXB)", "to": "Colombo (CMB)", "type": "arrival", "scheduled": "2026-10-16T15:20", "status": "On Time", "gate": "Baggage belt 1", "checkin_counters": null},
+  {"flight": "QR664", "airline": "Qatar Airways", "from": "Colombo (CMB)", "to": "Doha (DOH)", "type": "departure", "scheduled": "2026-10-16T18:05", "status": "Boarding", "gate": "B1", "checkin_counters": "30-34"}
+]
