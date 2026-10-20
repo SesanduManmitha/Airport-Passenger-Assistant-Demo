@@ -21,6 +21,7 @@ def load_chunks():
             metas.append({"source": file.name})
     return ids, docs, metas
 
+
 def build_index():
     """(Re)build the vector index from the FAQ lines."""
     try:
@@ -31,6 +32,7 @@ def build_index():
     collection = client.create_collection("airport_faq")
     ids, docs, metas = load_chunks()
     collection.add(ids=ids, documents=docs, metadatas=metas)
+
 
 def search(question: str, k: int = 3):
     """Return the k chunks most similar to the question."""

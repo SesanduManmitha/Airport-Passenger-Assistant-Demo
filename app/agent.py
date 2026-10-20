@@ -25,10 +25,11 @@ agent = create_agent(
     system_prompt=SYSTEM_PROMPT,
 )
 
-result = agent.invoke({
-    "messages": [
-        {"role":"user","content":"What's the status of UL503 and which gate should I go to?"}
-    ]
-})
+if __name__ == "__main__":
+    result = agent.invoke({
+        "messages": [
+            {"role":"user","content":"What are the parking fees per hour and per day in Sri Lankan rupees?"}
+        ]
+    })
 
-print(result["messages"][-1].content)
+    print(result["messages"][-1].content)
