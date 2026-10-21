@@ -12,7 +12,7 @@ passed = 0
 for i,t in enumerate(question, 1):
     result = agent.invoke({"messages": [{"role":"user", "content":t["q"]}]})
     reply = result["messages"][-1].content
-    low = reply.lower()
+    low = reply.lower().replace("’", "'")
 
     ok_any = any(k.lower() in low for k in t["contains_any"])
     ok_not = not any(k.lower() in low for k in t["not_contains"])
