@@ -21,10 +21,10 @@ SYSTEM_PROMPT = """You are a passenger assistant for bandaranaike internation ai
 
 agent = create_agent(
     model=llm,
-    tools=[search_airport_info],
+    tools=[search_airport_info, get_flight_status],
     system_prompt=SYSTEM_PROMPT,
 )
-
+## this run only if we run this file individually, if this file is import to another file and ran that file, its not gonna run code inside this
 if __name__ == "__main__":
     result = agent.invoke({
         "messages": [
