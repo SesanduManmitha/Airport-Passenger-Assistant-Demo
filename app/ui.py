@@ -15,18 +15,22 @@ for m in st.session_state.messages:
     with st.chat_message(m["role"]):
         st.markdown(m["content"])
 
+MAX_CHARS = 500
+
 if prompt := st.chat_input("Ask about flights, baggege, transport..."):
-    if len(prompt) < 500:
-        st.session_state.messages.append({"role":"user", "content" : prompt})
-        with st.chat_message("user"):
-            st.markdown(prompt)
+    if len(prompt) > MAX_CHARS:
+        st.error(f"YOur message is too long ({len(prompt)} characters). Please keep it under {MAX_CHARS}.")
+        st.stop()
 
-        with st.chat_message("assistant"):
-            with st.spinner("Thinking..."):
-                result = agent.invoke({"messages": st.session_state.messages})
-                reply = result["messages"][-1].content
-            st.markdown(reply)
-        st.session_state.messages.append({"role":"assistant","content":reply})
+    st.session_state.messages.append({"role":"user", "content" : prompt})
+    with st.chat_message("user"):
+        st.markdown(prompt)
 
-    else:
-        st.error("HAHAHAHHAH FUCK YOU")
+    with st.chat_message("assistant"):
+        with st.spinner("Thinking..."):
+            result = agent.invoke({"messages": st.session_state.messages})
+            reply = result["messages"][-1].content
+        st.markdown(reply)
+    st.session_state.messages.append({"role":"assistant","content":reply})
+
+    
