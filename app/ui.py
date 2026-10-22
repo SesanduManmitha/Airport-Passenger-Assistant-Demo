@@ -16,13 +16,17 @@ for m in st.session_state.messages:
         st.markdown(m["content"])
 
 if prompt := st.chat_input("Ask about flights, baggege, transport..."):
-    st.session_state.messages.append({"role":"user", "content" : prompt})
-    with st.chat_message("user"):
-        st.markdown(prompt)
+    if len(prompt) < 500:
+        st.session_state.messages.append({"role":"user", "content" : prompt})
+        with st.chat_message("user"):
+            st.markdown(prompt)
 
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            result = agent.invoke({"messages": st.session_state.messages})
-            reply = result["messages"][-1].content
-        st.markdown(reply)
-    st.session_state.messages.append({"role":"assistant","content":reply})
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking..."):
+                result = agent.invoke({"messages": st.session_state.messages})
+                reply = result["messages"][-1].content
+            st.markdown(reply)
+        st.session_state.messages.append({"role":"assistant","content":reply})
+
+    else:
+        st.error("HAHAHAHHAH FUCK YOU")
